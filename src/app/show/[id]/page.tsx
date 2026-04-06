@@ -21,7 +21,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
     return (
       <div className="text-center py-32">
         <div className="font-heading text-8xl text-white/5">404</div>
-        <p className="text-white/20 tracking-wider mt-4">Title not found.</p>
+        <p className="text-white/45 tracking-wider mt-4">Title not found.</p>
         <Link href="/watchlist" className="inline-block mt-8 px-6 py-2.5 bg-primary text-white font-heading tracking-wider">
           BACK
         </Link>
@@ -44,7 +44,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
           </div>
         )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
-          <Link href="/watchlist" className="inline-flex items-center gap-2 text-white/20 hover:text-primary text-sm tracking-wider transition-colors mb-8">
+          <Link href="/watchlist" className="inline-flex items-center gap-2 text-white/40 hover:text-primary text-sm tracking-wider transition-colors mb-8">
             ← BACK
           </Link>
           <div className="flex flex-col sm:flex-row gap-8">
@@ -63,7 +63,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
 
             {/* Info */}
             <div className="flex-1">
-              <div className="text-xs text-white/20 tracking-[0.3em] mb-2">
+              <div className="text-xs text-white/45 tracking-[0.3em] mb-2">
                 {item.year} <span className="text-primary">|</span> {item.mediaType === "tv" ? "SERIES" : "FILM"}
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-wider leading-[0.9]">{item.title}</h1>
@@ -78,11 +78,11 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
               <div className="flex items-center gap-4 mb-4">
                 <StatusBadge status={item.status} />
                 {item.rating !== null && (
-                  <span className="font-heading text-3xl text-accent">{item.rating}<span className="text-white/20 text-xl">/10</span></span>
+                  <span className="font-heading text-3xl text-accent">{item.rating}<span className="text-white/40 text-xl">/10</span></span>
                 )}
               </div>
 
-              <div className="text-[11px] text-white/15 tracking-wider">
+              <div className="text-[11px] text-white/40 tracking-wider">
                 ADDED {formatDate(item.addedAt).toUpperCase()} &middot; UPDATED {formatDate(item.updatedAt).toUpperCase()}
               </div>
 
@@ -105,7 +105,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
                 key={value}
                 onClick={() => updateStatus(item.id, value)}
                 className={`px-5 py-2.5 text-[11px] tracking-[0.2em] font-bold transition-all ${
-                  item.status === value ? "bg-primary text-white" : "bg-surface text-white/25 hover:text-white/50"
+                  item.status === value ? "bg-primary text-white" : "bg-surface text-white/40 hover:text-white/60"
                 }`}
               >
                 {label.toUpperCase()}
@@ -126,7 +126,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
                 className={`w-12 h-12 text-sm font-heading text-lg tracking-wide transition-all duration-200 ${
                   item.rating !== null && n <= item.rating
                     ? "bg-primary text-white"
-                    : "bg-surface text-white/15 hover:bg-surface-light hover:text-white/40"
+                    : "bg-surface text-white/30 hover:bg-surface-light hover:text-white/50"
                 }`}
               >
                 {n}
@@ -134,7 +134,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
             ))}
           </div>
           {item.rating !== null && (
-            <p className="text-white/20 text-sm mt-3 tracking-wider">
+            <p className="text-white/40 text-sm mt-3 tracking-wider">
               YOUR RATING: <span className="text-accent font-bold">{item.rating}/10</span>
             </p>
           )}
@@ -158,7 +158,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
                 onChange={(e) => setReviewText(e.target.value)}
                 placeholder="Your thoughts..."
                 rows={5}
-                className="w-full bg-surface border border-white/5 px-4 py-3 focus:outline-none focus:border-primary/30 resize-none text-white/70 placeholder-white/15"
+                className="w-full bg-surface border border-white/5 px-4 py-3 focus:outline-none focus:border-primary/30 resize-none text-white/70 placeholder-white/35"
               />
               <div className="flex gap-2">
                 <button onClick={handleSaveReview} className="px-6 py-2 bg-primary text-white font-heading tracking-wider text-sm">SAVE</button>
@@ -173,12 +173,12 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
               &ldquo;{item.review}&rdquo;
             </blockquote>
           ) : (
-            <p className="text-white/15 italic tracking-wider text-sm">No review yet.</p>
+            <p className="text-white/40 italic tracking-wider text-sm">No review yet.</p>
           )}
         </div>
 
         {/* Delete */}
-        <button onClick={handleDelete} className="text-xs text-white/10 hover:text-primary tracking-[0.2em] transition-colors">
+        <button onClick={handleDelete} className="text-xs text-white/30 hover:text-primary tracking-[0.2em] transition-colors">
           REMOVE FROM WATCHLIST
         </button>
       </div>

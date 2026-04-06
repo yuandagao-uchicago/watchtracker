@@ -18,13 +18,13 @@ export default function RecommendPage() {
           RECOMMENDED<br /><span className="text-primary">FOR YOU</span>
         </h1>
         <div className="w-12 h-0.5 bg-primary mt-4" />
-        <p className="text-white/25 mt-4 tracking-wider text-sm">Based on your ratings and taste.</p>
+        <p className="text-white/50 mt-4 tracking-wider text-sm">Based on your ratings and taste.</p>
       </div>
 
       {recommendations.length === 0 ? (
         <div className="text-center py-32">
           <div className="font-heading text-7xl text-white/5">NO DATA</div>
-          <p className="text-white/15 text-sm tracking-wider mt-4 max-w-sm mx-auto">
+          <p className="text-white/40 text-sm tracking-wider mt-4 max-w-sm mx-auto">
             Rate completed titles and add to your plan to watch list for personalized picks.
           </p>
           <Link href="/watchlist/add" className="inline-block mt-8 px-8 py-3 bg-primary text-white font-heading tracking-wider">
@@ -55,7 +55,7 @@ export default function RecommendPage() {
 
               <div className="flex-1 min-w-0">
                 <h3 className="font-heading text-2xl tracking-wide group-hover:text-primary transition-colors">{item.title}</h3>
-                <div className="text-xs text-white/20 tracking-wider mt-0.5">
+                <div className="text-xs text-white/40 tracking-wider mt-0.5">
                   {item.year} <span className="text-primary">|</span> {item.mediaType === "tv" ? "SERIES" : "FILM"} <span className="text-primary">|</span> {item.genre.join(", ").toUpperCase()}
                 </div>
                 <p className="text-xs text-accent/60 mt-1 italic">{reason}</p>

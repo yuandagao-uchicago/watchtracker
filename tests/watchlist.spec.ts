@@ -44,8 +44,8 @@ test.describe("WatchTracker", () => {
 
   test("change rating on detail page", async ({ page }) => {
     await page.goto("/show/1");
-    const ratingButton = page.locator("button:has-text('7')").first();
-    await ratingButton.click();
+    const ratingButton = page.locator("button", { hasText: /^7$/ }).first();
+    await ratingButton.click({ timeout: 10000 });
     await expect(page.locator("text=7/10").first()).toBeVisible();
   });
 

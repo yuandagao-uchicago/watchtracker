@@ -45,7 +45,7 @@ export default function WatchlistPage() {
           placeholder="SEARCH..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-72 bg-transparent border-b border-white/10 focus:border-primary px-0 py-2 text-sm tracking-widest placeholder-white/15 focus:outline-none transition-colors"
+          className="w-full sm:w-72 bg-transparent border-b border-white/10 focus:border-primary px-0 py-2 text-sm tracking-widest placeholder-white/40 focus:outline-none transition-colors"
         />
 
         <div className="flex flex-wrap gap-px">
@@ -56,7 +56,7 @@ export default function WatchlistPage() {
               className={`px-5 py-2 text-[11px] tracking-[0.2em] font-bold transition-all ${
                 statusFilter === s
                   ? "bg-primary text-white"
-                  : "bg-surface text-white/25 hover:text-white/50"
+                  : "bg-surface text-white/40 hover:text-white/60"
               }`}
             >
               {s === "all" ? "ALL" : STATUS_LABELS[s].toUpperCase()}
@@ -72,7 +72,7 @@ export default function WatchlistPage() {
               className={`px-5 py-2 text-[11px] tracking-[0.2em] font-bold transition-all ${
                 typeFilter === t
                   ? "bg-white/10 text-white"
-                  : "bg-surface text-white/25 hover:text-white/50"
+                  : "bg-surface text-white/40 hover:text-white/60"
               }`}
             >
               {t === "all" ? "ALL" : t === "tv" ? "SERIES" : "FILMS"}
@@ -84,7 +84,7 @@ export default function WatchlistPage() {
       {filtered.length === 0 ? (
         <div className="text-center py-24">
           <div className="font-heading text-6xl text-white/5 mb-4">EMPTY</div>
-          <p className="text-white/20 text-sm tracking-wider">
+          <p className="text-white/40 text-sm tracking-wider">
             No titles found.{" "}
             <Link href="/watchlist/add" className="text-primary hover:underline">Add one</Link>
           </p>

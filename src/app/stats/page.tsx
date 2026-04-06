@@ -45,7 +45,7 @@ export default function StatsPage() {
         ].map(({ label, value }) => (
           <div key={label} className="bg-black p-6 text-center">
             <div className="text-3xl font-heading text-primary">{value}</div>
-            <div className="text-[9px] tracking-[0.3em] text-white/15 mt-2">{label}</div>
+            <div className="text-[9px] tracking-[0.3em] text-white/40 mt-2">{label}</div>
           </div>
         ))}
       </div>
@@ -57,7 +57,7 @@ export default function StatsPage() {
         <div className="space-y-3">
           {(Object.entries(STATUS_LABELS) as [WatchStatus, string][]).map(([status, label]) => (
             <div key={status} className="flex items-center gap-3">
-              <span className="w-32 text-xs text-white/20 tracking-[0.2em]">{label.toUpperCase()}</span>
+              <span className="w-32 text-xs text-white/45 tracking-[0.2em]">{label.toUpperCase()}</span>
               <div className="flex-1 h-5 bg-surface overflow-hidden">
                 <div
                   className={`h-full ${statusColors[status]} transition-all duration-700`}
@@ -84,7 +84,7 @@ export default function StatsPage() {
               style={{ width: `${(tvCount / items.length) * 100}%` }}>{tvCount}</div>
           )}
         </div>
-        <div className="flex justify-between mt-3 text-xs text-white/20 tracking-[0.2em]">
+        <div className="flex justify-between mt-3 text-xs text-white/45 tracking-[0.2em]">
           <span>FILMS ({movieCount})</span>
           <span>SERIES ({tvCount})</span>
         </div>
@@ -97,11 +97,11 @@ export default function StatsPage() {
         <div className="space-y-2">
           {topGenres.map(([genre, count]) => (
             <div key={genre} className="flex items-center gap-3">
-              <span className="w-24 text-xs text-white/20 tracking-wider uppercase">{genre}</span>
+              <span className="w-24 text-xs text-white/45 tracking-wider uppercase">{genre}</span>
               <div className="flex-1 h-4 bg-surface overflow-hidden">
                 <div className="h-full bg-primary/50 transition-all duration-700" style={{ width: `${(count / maxGenreCount) * 100}%` }} />
               </div>
-              <span className="w-6 text-right text-xs text-white/20 font-heading">{count}</span>
+              <span className="w-6 text-right text-xs text-white/45 font-heading">{count}</span>
             </div>
           ))}
         </div>
@@ -120,7 +120,7 @@ export default function StatsPage() {
                   style={{ height: ratingDist[n] ? `${(ratingDist[n] / maxRatingCount) * 100}%` : "0%", minHeight: ratingDist[n] ? "4px" : "0px" }}
                 />
               </div>
-              <span className="text-xs text-white/15 font-heading">{n}</span>
+              <span className="text-xs text-white/40 font-heading">{n}</span>
             </div>
           ))}
         </div>

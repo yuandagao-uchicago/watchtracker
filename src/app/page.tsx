@@ -65,7 +65,7 @@ export default function Dashboard() {
         ] as const).map(({ label, value, color }) => (
           <div key={label} className="bg-black p-5 text-center">
             <div className={`text-4xl font-heading ${color}`}>{value}</div>
-            <div className="text-[10px] tracking-[0.25em] text-white/20 mt-1">{label}</div>
+            <div className="text-[10px] tracking-[0.25em] text-white/40 mt-1">{label}</div>
           </div>
         ))}
       </div>
@@ -115,12 +115,12 @@ export default function Dashboard() {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-heading text-xl tracking-wide group-hover:text-primary transition-colors truncate">{item.title}</div>
-                <div className="text-xs text-white/25 tracking-wider uppercase">
+                <div className="text-xs text-white/45 tracking-wider uppercase">
                   {item.year} <span className="text-primary">|</span> {item.mediaType === "tv" ? "Series" : "Film"}
                 </div>
               </div>
               <StatusBadge status={item.status} />
-              <div className="text-[11px] text-white/15 hidden sm:block tracking-wider">{formatDate(item.updatedAt)}</div>
+              <div className="text-[11px] text-white/35 hidden sm:block tracking-wider">{formatDate(item.updatedAt)}</div>
             </Link>
           ))}
         </div>
