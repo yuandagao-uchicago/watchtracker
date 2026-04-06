@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useWatchlist } from "@/context/WatchlistContext";
 import { WatchStatus, STATUS_LABELS } from "@/types";
 import StatusBadge from "@/components/watchlist/StatusBadge";
@@ -36,7 +35,7 @@ export default function Dashboard() {
       <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 -mt-8 overflow-hidden">
         {heroItem?.posterUrl && (
           <div className="absolute inset-0">
-            <Image src={heroItem.posterUrl} alt="" fill className="object-cover object-top opacity-15 blur-sm scale-110" sizes="100vw" />
+            <img src={heroItem.posterUrl} alt="" className="absolute inset-0 w-full h-full object-cover object-top opacity-15 blur-sm scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
           </div>
@@ -106,7 +105,7 @@ export default function Dashboard() {
               <span className="text-white/10 font-heading text-3xl w-8">{String(i + 1).padStart(2, "0")}</span>
               <div className="w-10 h-14 shrink-0 relative overflow-hidden">
                 {item.posterUrl ? (
-                  <Image src={item.posterUrl} alt={item.title} fill className="object-cover" sizes="40px" />
+                  <img src={item.posterUrl} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
                 ) : (
                   <div className={`w-full h-full bg-gradient-to-br ${getPosterGradient(item.id)} flex items-center justify-center`}>
                     <span className="text-white/20 text-xs font-bold">{getInitials(item.title)}</span>

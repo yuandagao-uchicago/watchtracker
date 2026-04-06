@@ -3,7 +3,6 @@
 import { use, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { useWatchlist } from "@/context/WatchlistContext";
 import { WatchStatus, STATUS_LABELS } from "@/types";
 import StatusBadge from "@/components/watchlist/StatusBadge";
@@ -38,7 +37,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
       <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 -mt-8 overflow-hidden">
         {item.posterUrl && (
           <div className="absolute inset-0">
-            <Image src={item.posterUrl} alt="" fill className="object-cover object-top opacity-20 blur-md scale-110" sizes="100vw" />
+            <img src={item.posterUrl} alt="" className="absolute inset-0 w-full h-full object-cover object-top opacity-20 blur-md scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/90" />
           </div>
@@ -52,7 +51,7 @@ export default function ShowDetailPage({ params }: { params: Promise<{ id: strin
             <div className="w-full sm:w-56 shrink-0">
               <div className="relative aspect-[2/3] overflow-hidden shadow-2xl shadow-primary/10 border border-white/5">
                 {item.posterUrl ? (
-                  <Image src={item.posterUrl} alt={item.title} fill className="object-cover" sizes="224px" priority />
+                  <img src={item.posterUrl} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
                 ) : (
                   <div className={`w-full h-full bg-gradient-to-br ${getPosterGradient(item.id)} flex items-center justify-center`}>
                     <span className="text-white/10 text-7xl font-heading">{getInitials(item.title)}</span>

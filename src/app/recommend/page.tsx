@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useWatchlist } from "@/context/WatchlistContext";
 import { getRecommendations } from "@/lib/recommend";
 import { getInitials, getPosterGradient } from "@/lib/utils";
@@ -45,7 +44,7 @@ export default function RecommendPage() {
 
               <div className="w-12 h-18 shrink-0 relative overflow-hidden shadow-lg border border-white/5">
                 {item.posterUrl ? (
-                  <Image src={item.posterUrl} alt={item.title} width={48} height={72} className="object-cover" />
+                  <img src={item.posterUrl} alt={item.title} className="w-12 h-[72px] object-cover" />
                 ) : (
                   <div className={`w-12 h-18 bg-gradient-to-br ${getPosterGradient(item.id)} flex items-center justify-center`}>
                     <span className="text-white/15 text-xs font-bold">{getInitials(item.title)}</span>
