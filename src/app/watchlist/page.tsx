@@ -29,38 +29,46 @@ export default function WatchlistPage() {
   });
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">Watchlist</h1>
+    <div className="space-y-8">
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <div>
+          <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-1">Collection</p>
+          <h1 className="text-3xl font-heading font-bold tracking-tight">Your Watchlist</h1>
+        </div>
         <Link
           href="/watchlist/add"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-sand to-amber-700 hover:from-sand hover:to-amber-600 text-black rounded-lg font-semibold transition-all shadow-lg shadow-sand/10"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary/70 text-white rounded-full font-semibold text-sm transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30"
         >
           + Add New
         </Link>
       </div>
 
       {/* Filters */}
-      <div className="space-y-4">
+      <div className="space-y-3">
         {/* Search */}
-        <input
-          type="text"
-          placeholder="Search titles..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-80 bg-surface border border-sand/10 rounded-lg px-4 py-2.5 text-sm placeholder-foreground/30 focus:outline-none focus:ring-2 focus:ring-sand/30 focus:border-sand/20"
-        />
+        <div className="relative">
+          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search titles..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full sm:w-80 bg-surface border border-white/5 rounded-full pl-11 pr-4 py-2.5 text-sm placeholder-foreground/20 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/20 transition-all"
+          />
+        </div>
 
         {/* Status tabs */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {statusFilters.map((s) => (
             <button
               key={s}
               onClick={() => setStatusFilter(s)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium tracking-wide transition-all ${
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 statusFilter === s
-                  ? "bg-sand/15 text-sand border border-sand/20"
-                  : "bg-surface text-foreground/40 hover:text-foreground/70 hover:bg-surface-light border border-transparent"
+                  ? "bg-primary/15 text-primary ring-1 ring-primary/20"
+                  : "text-foreground/30 hover:text-foreground/60 hover:bg-surface"
               }`}
             >
               {s === "all" ? "All" : STATUS_LABELS[s]}
@@ -69,18 +77,18 @@ export default function WatchlistPage() {
         </div>
 
         {/* Type toggle */}
-        <div className="flex gap-2">
+        <div className="flex gap-1.5">
           {(["all", "movie", "tv"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium tracking-wide transition-all ${
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 typeFilter === t
-                  ? "bg-sand/15 text-sand border border-sand/20"
-                  : "bg-surface text-foreground/40 hover:text-foreground/70 hover:bg-surface-light border border-transparent"
+                  ? "bg-accent/15 text-accent ring-1 ring-accent/20"
+                  : "text-foreground/30 hover:text-foreground/60 hover:bg-surface"
               }`}
             >
-              {t === "all" ? "All Types" : t === "tv" ? "TV Shows" : "Movies"}
+              {t === "all" ? "All Types" : t === "tv" ? "Series" : "Films"}
             </button>
           ))}
         </div>
@@ -88,18 +96,22 @@ export default function WatchlistPage() {
 
       {/* Results */}
       {filtered.length === 0 ? (
-        <div className="text-center py-20">
-          <div className="text-6xl mb-4 opacity-20">🎬</div>
-          <p className="text-foreground/50 text-lg">No items found</p>
-          <p className="text-foreground/30 text-sm mt-2">
+        <div className="text-center py-24">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-surface flex items-center justify-center">
+            <svg className="w-8 h-8 text-foreground/15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+            </svg>
+          </div>
+          <p className="text-foreground/40 text-lg font-heading">Nothing here yet</p>
+          <p className="text-foreground/20 text-sm mt-2">
             Try adjusting your filters or{" "}
-            <Link href="/watchlist/add" className="text-sand hover:underline">
+            <Link href="/watchlist/add" className="text-primary hover:underline">
               add something new
             </Link>
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {filtered.map((item) => (
             <WatchCard key={item.id} item={item} />
           ))}

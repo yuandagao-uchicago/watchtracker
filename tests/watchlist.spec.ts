@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test.describe("WatchTracker", () => {
   test("dashboard loads with stats and recent activity", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("h1")).toContainText("Watchlist");
+    await expect(page.locator("h1")).toContainText("Tracked");
     // Should show stat cards
     await expect(page.locator("div").filter({ hasText: /^Watching$/ }).first()).toBeVisible();
     await expect(page.locator("div").filter({ hasText: /^Completed$/ }).first()).toBeVisible();
@@ -28,7 +28,7 @@ test.describe("WatchTracker", () => {
 
   test("add a new item via form", async ({ page }) => {
     await page.goto("/watchlist/add");
-    await expect(page.locator("h1")).toContainText("Watchlist");
+    await expect(page.locator("h1")).toContainText("Collection");
 
     // Fill out form
     await page.fill('input[placeholder="e.g. The Dark Knight"]', "Interstellar");
@@ -38,7 +38,7 @@ test.describe("WatchTracker", () => {
       'textarea[placeholder="Brief description..."]',
       "A team of explorers travel through a wormhole in space."
     );
-    await page.click("button:has-text('Add to Watchlist')");
+    await page.click("button:has-text('Add to Collection')");
 
     // Should redirect to watchlist and show new item
     await expect(page).toHaveURL("/watchlist");
@@ -49,7 +49,6 @@ test.describe("WatchTracker", () => {
     await page.goto("/show/1");
     // Should be on the detail page
     await expect(page.locator("h1")).toHaveText("Inception");
-    // Synopsis text is shown inline now, not as a heading
     await expect(page.locator("text=dream-sharing technology")).toBeVisible();
   });
 
@@ -70,7 +69,7 @@ test.describe("WatchTracker", () => {
 
   test("stats page shows charts", async ({ page }) => {
     await page.goto("/stats");
-    await expect(page.locator("h1")).toContainText("Stats");
+    await expect(page.locator("h1")).toContainText("Insights");
     await expect(page.locator("text=By Status")).toBeVisible();
     await expect(page.locator("text=Top Genres")).toBeVisible();
     await expect(page.locator("text=Rating Distribution")).toBeVisible();
@@ -80,19 +79,19 @@ test.describe("WatchTracker", () => {
     await page.goto("/");
 
     // Navigate to watchlist
-    await page.click("nav >> text=Watchlist");
+    await page.click("nav >> text=Collection");
     await expect(page.locator("h1")).toContainText("Watchlist");
 
     // Navigate to recommend
-    await page.click("nav >> text=Recommend");
+    await page.click("nav >> text=For You");
     await expect(page.locator("h1")).toContainText("Recommended");
 
     // Navigate to stats
-    await page.click("nav >> text=Stats");
-    await expect(page.locator("h1")).toContainText("Stats");
+    await page.click("nav >> text=Insights");
+    await expect(page.locator("h1")).toContainText("Insights");
 
     // Navigate back to dashboard
-    await page.click("nav >> text=Dashboard");
-    await expect(page.locator("h1")).toContainText("Watchlist");
+    await page.click("nav >> text=Home");
+    await expect(page.locator("h1")).toContainText("Tracked");
   });
 });

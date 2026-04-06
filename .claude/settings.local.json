@@ -4,7 +4,15 @@
       "Bash(npx:*)",
       "Bash(ls:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(gh repo:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "WebSearch",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''poster_path'''',''''NOT FOUND''''\\)\\)\")",
+      "WebFetch(domain:www.themoviedb.org)"
     ]
   }
 }

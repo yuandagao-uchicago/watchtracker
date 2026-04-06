@@ -61,18 +61,19 @@ export default function AddItemPage() {
   };
 
   const inputClass =
-    "w-full bg-surface border border-sand/10 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-sand/20 focus:border-sand/20 placeholder-foreground/25";
+    "w-full bg-surface border border-white/5 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/20 placeholder-foreground/15 transition-all";
 
   return (
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold tracking-tight mb-8">
-        Add to <span className="text-sand">Watchlist</span>
+      <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-1">New Entry</p>
+      <h1 className="text-3xl font-heading font-bold tracking-tight mb-8">
+        Add to Collection
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">Title *</label>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">Title *</label>
           <input
             type="text"
             value={title}
@@ -80,15 +81,13 @@ export default function AddItemPage() {
             placeholder="e.g. The Dark Knight"
             className={inputClass}
           />
-          {errors.title && (
-            <p className="text-dropped text-sm mt-1">{errors.title}</p>
-          )}
+          {errors.title && <p className="text-dropped text-sm mt-1.5">{errors.title}</p>}
         </div>
 
         {/* Poster URL */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">
-            Poster URL <span className="text-foreground/30 font-normal">(optional)</span>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">
+            Poster URL <span className="text-foreground/20">(optional)</span>
           </label>
           <input
             type="url"
@@ -101,20 +100,20 @@ export default function AddItemPage() {
 
         {/* Media Type */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">Type</label>
-          <div className="flex gap-3">
+          <label className="block text-sm font-medium mb-2 text-foreground/50">Type</label>
+          <div className="flex gap-2">
             {(["movie", "tv"] as const).map((t) => (
               <button
                 key={t}
                 type="button"
                 onClick={() => setMediaType(t)}
-                className={`px-5 py-2 rounded-lg text-sm font-medium tracking-wide transition-all ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   mediaType === t
-                    ? "bg-sand/15 text-sand border border-sand/20"
-                    : "bg-surface text-foreground/40 hover:bg-surface-light border border-transparent"
+                    ? "bg-primary/15 text-primary ring-1 ring-primary/20"
+                    : "text-foreground/30 hover:text-foreground/60 bg-surface hover:bg-surface-light"
                 }`}
               >
-                {t === "movie" ? "Movie" : "TV Show"}
+                {t === "movie" ? "Film" : "Series"}
               </button>
             ))}
           </div>
@@ -122,7 +121,7 @@ export default function AddItemPage() {
 
         {/* Year */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">Year *</label>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">Year *</label>
           <input
             type="number"
             value={year}
@@ -132,15 +131,13 @@ export default function AddItemPage() {
             max="2030"
             className={`${inputClass} sm:w-40`}
           />
-          {errors.year && (
-            <p className="text-dropped text-sm mt-1">{errors.year}</p>
-          )}
+          {errors.year && <p className="text-dropped text-sm mt-1.5">{errors.year}</p>}
         </div>
 
         {/* Genres */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">
-            Genres * <span className="text-foreground/30 font-normal">(select at least one)</span>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">
+            Genres * <span className="text-foreground/20">(select at least one)</span>
           </label>
           <div className="flex flex-wrap gap-2">
             {GENRES.map((genre) => (
@@ -148,24 +145,22 @@ export default function AddItemPage() {
                 key={genre}
                 type="button"
                 onClick={() => toggleGenre(genre)}
-                className={`px-3 py-1.5 rounded-lg text-sm transition-all ${
+                className={`px-3.5 py-1.5 rounded-full text-sm transition-all duration-300 ${
                   selectedGenres.includes(genre)
-                    ? "bg-sand/15 text-sand border border-sand/20"
-                    : "bg-surface text-foreground/40 hover:bg-surface-light border border-transparent"
+                    ? "bg-primary/15 text-primary ring-1 ring-primary/20"
+                    : "text-foreground/30 hover:text-foreground/60 bg-surface hover:bg-surface-light"
                 }`}
               >
                 {genre}
               </button>
             ))}
           </div>
-          {errors.genres && (
-            <p className="text-dropped text-sm mt-1">{errors.genres}</p>
-          )}
+          {errors.genres && <p className="text-dropped text-sm mt-1.5">{errors.genres}</p>}
         </div>
 
         {/* Synopsis */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">Synopsis</label>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">Synopsis</label>
           <textarea
             value={synopsis}
             onChange={(e) => setSynopsis(e.target.value)}
@@ -177,7 +172,7 @@ export default function AddItemPage() {
 
         {/* Status */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">Status</label>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">Status</label>
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value as WatchStatus)}
@@ -185,9 +180,7 @@ export default function AddItemPage() {
           >
             {(Object.entries(STATUS_LABELS) as [WatchStatus, string][]).map(
               ([value, label]) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
+                <option key={value} value={value}>{label}</option>
               )
             )}
           </select>
@@ -195,8 +188,8 @@ export default function AddItemPage() {
 
         {/* Rating */}
         <div>
-          <label className="block text-sm font-medium mb-2 tracking-wide text-foreground/70">
-            Rating <span className="text-foreground/30 font-normal">(1-10, optional)</span>
+          <label className="block text-sm font-medium mb-2 text-foreground/50">
+            Rating <span className="text-foreground/20">(1-10, optional)</span>
           </label>
           <input
             type="number"
@@ -207,23 +200,21 @@ export default function AddItemPage() {
             max="10"
             className={`${inputClass} sm:w-32`}
           />
-          {errors.rating && (
-            <p className="text-dropped text-sm mt-1">{errors.rating}</p>
-          )}
+          {errors.rating && <p className="text-dropped text-sm mt-1.5">{errors.rating}</p>}
         </div>
 
         {/* Submit */}
-        <div className="flex gap-3 pt-4">
+        <div className="flex gap-3 pt-6">
           <button
             type="submit"
-            className="px-6 py-2.5 bg-gradient-to-r from-sand to-amber-700 hover:from-sand hover:to-amber-600 text-black rounded-lg font-semibold transition-all shadow-lg shadow-sand/10"
+            className="px-8 py-3 bg-gradient-to-r from-primary to-primary/70 text-white rounded-full font-semibold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30"
           >
-            Add to Watchlist
+            Add to Collection
           </button>
           <button
             type="button"
             onClick={() => router.back()}
-            className="px-6 py-2.5 border border-sand/10 hover:bg-sand/5 text-foreground rounded-lg font-medium transition-all"
+            className="px-6 py-3 border border-white/10 hover:bg-surface text-foreground/60 rounded-full font-medium transition-all"
           >
             Cancel
           </button>

@@ -37,7 +37,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Sci-Fi", "Adventure", "Drama"],
     year: 2024,
-    posterUrl: "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
     synopsis:
       "Paul Atreides unites with the Fremen to seek revenge against those who destroyed his family while trying to prevent a terrible future.",
     status: "completed",
@@ -52,7 +52,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Comedy", "Drama"],
     year: 2022,
-    posterUrl: "https://image.tmdb.org/t/p/w500/sHFlmORohVIEEAA2TVYggQJrly8.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/w500/eKfVzzEazSIjJMrw9ADa2x8ksLz.jpg",
     synopsis:
       "A young chef from the fine dining world returns to Chicago to run his family's sandwich shop.",
     status: "watching",
@@ -82,7 +82,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Sci-Fi", "Mystery", "Thriller"],
     year: 2022,
-    posterUrl: "https://image.tmdb.org/t/p/w500/lFRfHNJFyEgTHfGCEFMfMauB6UD.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/w500/pPHpeI2X1qEd1CS1SeyrdhZ4qnT.jpg",
     synopsis:
       "Employees of a corporation undergo a procedure that separates their work memories from their personal memories.",
     status: "watching",
@@ -97,7 +97,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Drama"],
     year: 1994,
-    posterUrl: "https://image.tmdb.org/t/p/w500/9cjIGRQL0PQa1mJ4TTSKQAolMRW.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/w500/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
     synopsis:
       "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence.",
     status: "plan_to_watch",
