@@ -7,7 +7,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Sci-Fi", "Action", "Thriller"],
     year: 2010,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg",
     synopsis:
       "A thief who steals corporate secrets through dream-sharing technology is given the task of planting an idea into the mind of a C.E.O.",
     status: "completed",
@@ -22,7 +22,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Crime", "Drama", "Thriller"],
     year: 2008,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg",
     synopsis:
       "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine to secure his family's future.",
     status: "completed",
@@ -37,7 +37,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Sci-Fi", "Adventure", "Drama"],
     year: 2024,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg",
     synopsis:
       "Paul Atreides unites with the Fremen to seek revenge against those who destroyed his family while trying to prevent a terrible future.",
     status: "completed",
@@ -52,7 +52,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Comedy", "Drama"],
     year: 2022,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/sHFlmORohVIEEAA2TVYggQJrly8.jpg",
     synopsis:
       "A young chef from the fine dining world returns to Chicago to run his family's sandwich shop.",
     status: "watching",
@@ -67,7 +67,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Drama", "Thriller"],
     year: 2023,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
     synopsis:
       "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
     status: "completed",
@@ -82,7 +82,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Sci-Fi", "Mystery", "Thriller"],
     year: 2022,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/lFRfHNJFyEgTHfGCEFMfMauB6UD.jpg",
     synopsis:
       "Employees of a corporation undergo a procedure that separates their work memories from their personal memories.",
     status: "watching",
@@ -97,7 +97,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Drama"],
     year: 1994,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/9cjIGRQL0PQa1mJ4TTSKQAolMRW.jpg",
     synopsis:
       "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence.",
     status: "plan_to_watch",
@@ -112,7 +112,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Animation", "Action", "Fantasy"],
     year: 2021,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
     synopsis:
       "Set in the utopian region of Piltover and the oppressed underground of Zaun, the story follows the origins of two iconic League champions.",
     status: "plan_to_watch",
@@ -127,7 +127,7 @@ export const seedData: WatchItem[] = [
     mediaType: "tv",
     genre: ["Fantasy", "Action", "Adventure"],
     year: 2019,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg",
     synopsis:
       "Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.",
     status: "dropped",
@@ -142,7 +142,7 @@ export const seedData: WatchItem[] = [
     mediaType: "movie",
     genre: ["Sci-Fi", "Action", "Comedy"],
     year: 2022,
-    posterUrl: "",
+    posterUrl: "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg",
     synopsis:
       "A middle-aged Chinese immigrant is swept up into an insane adventure where she alone can save existence by exploring other universes.",
     status: "plan_to_watch",

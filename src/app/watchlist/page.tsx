@@ -31,10 +31,10 @@ export default function WatchlistPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h1 className="text-3xl font-bold">Watchlist</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Watchlist</h1>
         <Link
           href="/watchlist/add"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-white rounded-lg font-medium transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-sand to-amber-700 hover:from-sand hover:to-amber-600 text-black rounded-lg font-semibold transition-all shadow-lg shadow-sand/10"
         >
           + Add New
         </Link>
@@ -48,7 +48,7 @@ export default function WatchlistPage() {
           placeholder="Search titles..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-80 bg-surface border border-white/10 rounded-lg px-4 py-2.5 text-sm placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/50"
+          className="w-full sm:w-80 bg-surface border border-sand/10 rounded-lg px-4 py-2.5 text-sm placeholder-foreground/30 focus:outline-none focus:ring-2 focus:ring-sand/30 focus:border-sand/20"
         />
 
         {/* Status tabs */}
@@ -57,10 +57,10 @@ export default function WatchlistPage() {
             <button
               key={s}
               onClick={() => setStatusFilter(s)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium tracking-wide transition-all ${
                 statusFilter === s
-                  ? "bg-primary text-white"
-                  : "bg-surface text-foreground/60 hover:text-foreground hover:bg-surface-light"
+                  ? "bg-sand/15 text-sand border border-sand/20"
+                  : "bg-surface text-foreground/40 hover:text-foreground/70 hover:bg-surface-light border border-transparent"
               }`}
             >
               {s === "all" ? "All" : STATUS_LABELS[s]}
@@ -74,10 +74,10 @@ export default function WatchlistPage() {
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium tracking-wide transition-all ${
                 typeFilter === t
-                  ? "bg-primary text-white"
-                  : "bg-surface text-foreground/60 hover:text-foreground hover:bg-surface-light"
+                  ? "bg-sand/15 text-sand border border-sand/20"
+                  : "bg-surface text-foreground/40 hover:text-foreground/70 hover:bg-surface-light border border-transparent"
               }`}
             >
               {t === "all" ? "All Types" : t === "tv" ? "TV Shows" : "Movies"}
@@ -88,18 +88,18 @@ export default function WatchlistPage() {
 
       {/* Results */}
       {filtered.length === 0 ? (
-        <div className="text-center py-16">
-          <div className="text-4xl mb-4">🎬</div>
-          <p className="text-foreground/60 text-lg">No items found</p>
-          <p className="text-foreground/40 text-sm mt-1">
+        <div className="text-center py-20">
+          <div className="text-6xl mb-4 opacity-20">🎬</div>
+          <p className="text-foreground/50 text-lg">No items found</p>
+          <p className="text-foreground/30 text-sm mt-2">
             Try adjusting your filters or{" "}
-            <Link href="/watchlist/add" className="text-primary hover:underline">
+            <Link href="/watchlist/add" className="text-sand hover:underline">
               add something new
             </Link>
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {filtered.map((item) => (
             <WatchCard key={item.id} item={item} />
           ))}

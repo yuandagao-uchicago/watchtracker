@@ -17,12 +17,16 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-white/10">
+    <nav className="sticky top-0 z-50 bg-deep/80 backdrop-blur-xl border-b border-sand/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="text-primary">&#9658;</span>
-            <span>WatchTracker</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded bg-gradient-to-br from-sand to-amber-700 flex items-center justify-center">
+              <span className="text-black font-black text-sm">W</span>
+            </div>
+            <span className="font-bold text-xl tracking-wide text-sand">
+              WATCH<span className="text-foreground/60">TRACKER</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -36,10 +40,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium tracking-wide uppercase transition-all duration-300 ${
                     active
-                      ? "bg-primary text-white"
-                      : "text-foreground/70 hover:text-foreground hover:bg-white/5"
+                      ? "bg-sand/15 text-sand border border-sand/20"
+                      : "text-foreground/50 hover:text-sand hover:bg-sand/5"
                   }`}
                 >
                   {link.label}
@@ -50,7 +54,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/10"
+            className="md:hidden p-2 rounded-lg hover:bg-sand/10 text-sand"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -92,10 +96,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`block px-4 py-2 rounded-lg text-sm font-medium tracking-wide uppercase transition-all ${
                     active
-                      ? "bg-primary text-white"
-                      : "text-foreground/70 hover:text-foreground hover:bg-white/5"
+                      ? "bg-sand/15 text-sand border border-sand/20"
+                      : "text-foreground/50 hover:text-sand hover:bg-sand/5"
                   }`}
                 >
                   {link.label}
