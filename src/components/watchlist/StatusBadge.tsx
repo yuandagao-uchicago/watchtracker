@@ -1,18 +1,17 @@
 import { WatchStatus, STATUS_LABELS } from "@/types";
 
 const badgeStyles: Record<WatchStatus, string> = {
-  watching: "bg-watching/10 text-watching border-watching/20",
-  completed: "bg-completed/10 text-completed border-completed/20",
-  plan_to_watch: "bg-plan/10 text-plan border-plan/20",
-  dropped: "bg-dropped/10 text-dropped border-dropped/20",
+  watching: "text-watching border-watching/40",
+  completed: "text-completed border-completed/40",
+  plan_to_watch: "text-plan/70 border-plan/20",
+  dropped: "text-dropped border-dropped/40",
 };
 
 export default function StatusBadge({ status }: { status: WatchStatus }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-semibold tracking-wider uppercase ${badgeStyles[status]}`}
+      className={`inline-block px-2 py-0.5 border text-[10px] font-bold tracking-[0.2em] uppercase ${badgeStyles[status]}`}
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />
       {STATUS_LABELS[status]}
     </span>
   );

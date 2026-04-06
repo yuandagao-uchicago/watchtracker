@@ -7,11 +7,7 @@ import { WatchStatus, MediaType, STATUS_LABELS } from "@/types";
 import WatchCard from "@/components/watchlist/WatchCard";
 
 const statusFilters: ("all" | WatchStatus)[] = [
-  "all",
-  "watching",
-  "completed",
-  "plan_to_watch",
-  "dropped",
+  "all", "watching", "completed", "plan_to_watch", "dropped",
 ];
 
 export default function WatchlistPage() {
@@ -23,95 +19,78 @@ export default function WatchlistPage() {
   const filtered = items.filter((item) => {
     if (statusFilter !== "all" && item.status !== statusFilter) return false;
     if (typeFilter !== "all" && item.mediaType !== typeFilter) return false;
-    if (search && !item.title.toLowerCase().includes(search.toLowerCase()))
-      return false;
+    if (search && !item.title.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
   });
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
         <div>
-          <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-1">Collection</p>
-          <h1 className="text-3xl font-heading font-bold tracking-tight">Your Watchlist</h1>
+          <h1 className="text-5xl font-heading tracking-wider">WATCHLIST</h1>
+          <div className="w-10 h-0.5 bg-primary mt-3" />
         </div>
         <Link
           href="/watchlist/add"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary/70 text-white rounded-full font-semibold text-sm transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30"
+          className="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white font-heading text-base tracking-wider transition-colors"
         >
-          + Add New
+          + ADD TITLE
         </Link>
       </div>
 
       {/* Filters */}
-      <div className="space-y-3">
-        {/* Search */}
-        <div className="relative">
-          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <input
-            type="text"
-            placeholder="Search titles..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full sm:w-80 bg-surface border border-white/5 rounded-full pl-11 pr-4 py-2.5 text-sm placeholder-foreground/20 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/20 transition-all"
-          />
-        </div>
+      <div className="space-y-4">
+        <input
+          type="text"
+          placeholder="SEARCH..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full sm:w-72 bg-transparent border-b border-white/10 focus:border-primary px-0 py-2 text-sm tracking-widest placeholder-white/15 focus:outline-none transition-colors"
+        />
 
-        {/* Status tabs */}
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-px">
           {statusFilters.map((s) => (
             <button
               key={s}
               onClick={() => setStatusFilter(s)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2 text-[11px] tracking-[0.2em] font-bold transition-all ${
                 statusFilter === s
-                  ? "bg-primary/15 text-primary ring-1 ring-primary/20"
-                  : "text-foreground/30 hover:text-foreground/60 hover:bg-surface"
+                  ? "bg-primary text-white"
+                  : "bg-surface text-white/25 hover:text-white/50"
               }`}
             >
-              {s === "all" ? "All" : STATUS_LABELS[s]}
+              {s === "all" ? "ALL" : STATUS_LABELS[s].toUpperCase()}
             </button>
           ))}
         </div>
 
-        {/* Type toggle */}
-        <div className="flex gap-1.5">
+        <div className="flex gap-px">
           {(["all", "movie", "tv"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2 text-[11px] tracking-[0.2em] font-bold transition-all ${
                 typeFilter === t
-                  ? "bg-accent/15 text-accent ring-1 ring-accent/20"
-                  : "text-foreground/30 hover:text-foreground/60 hover:bg-surface"
+                  ? "bg-white/10 text-white"
+                  : "bg-surface text-white/25 hover:text-white/50"
               }`}
             >
-              {t === "all" ? "All Types" : t === "tv" ? "Series" : "Films"}
+              {t === "all" ? "ALL" : t === "tv" ? "SERIES" : "FILMS"}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Results */}
       {filtered.length === 0 ? (
         <div className="text-center py-24">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-surface flex items-center justify-center">
-            <svg className="w-8 h-8 text-foreground/15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
-            </svg>
-          </div>
-          <p className="text-foreground/40 text-lg font-heading">Nothing here yet</p>
-          <p className="text-foreground/20 text-sm mt-2">
-            Try adjusting your filters or{" "}
-            <Link href="/watchlist/add" className="text-primary hover:underline">
-              add something new
-            </Link>
+          <div className="font-heading text-6xl text-white/5 mb-4">EMPTY</div>
+          <p className="text-white/20 text-sm tracking-wider">
+            No titles found.{" "}
+            <Link href="/watchlist/add" className="text-primary hover:underline">Add one</Link>
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
           {filtered.map((item) => (
             <WatchCard key={item.id} item={item} />
           ))}

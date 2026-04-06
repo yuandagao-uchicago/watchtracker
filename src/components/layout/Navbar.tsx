@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/watchlist", label: "Collection" },
-  { href: "/watchlist/add", label: "Add" },
-  { href: "/recommend", label: "For You" },
-  { href: "/stats", label: "Insights" },
+  { href: "/", label: "HOME" },
+  { href: "/watchlist", label: "WATCHLIST" },
+  { href: "/watchlist/add", label: "ADD" },
+  { href: "/recommend", label: "FOR YOU" },
+  { href: "/stats", label: "STATS" },
 ];
 
 export default function Navbar() {
@@ -17,22 +17,18 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-deep/90 backdrop-blur-xl border-b border-primary/5">
+    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20">
-              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <span className="font-heading text-xl font-bold tracking-wide">
-              Watch<span className="text-primary">Tracker</span>
+        <div className="flex items-center justify-between h-14">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-1.5 h-6 bg-primary" />
+            <span className="font-heading text-2xl tracking-wider text-white">
+              WATCHTRACKER
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-0.5">
+          <div className="hidden md:flex items-center gap-0">
             {links.map((link) => {
               const active =
                 link.href === "/"
@@ -42,15 +38,15 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`relative px-5 py-4 text-[13px] font-medium tracking-widest transition-colors ${
                     active
-                      ? "text-white bg-primary/15"
-                      : "text-foreground/40 hover:text-foreground/80"
+                      ? "text-white"
+                      : "text-white/30 hover:text-white/70"
                   }`}
                 >
                   {link.label}
                   {active && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
+                    <span className="absolute bottom-0 left-5 right-5 h-[2px] bg-primary" />
                   )}
                 </Link>
               );
@@ -59,7 +55,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-primary/10 text-foreground/60"
+            className="md:hidden p-2 text-white/50"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -73,9 +69,8 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 space-y-1 border-t border-primary/5 pt-3">
+          <div className="md:hidden pb-4 border-t border-white/5">
             {links.map((link) => {
               const active =
                 link.href === "/"
@@ -86,10 +81,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  className={`block px-4 py-3 text-sm tracking-widest font-medium border-l-2 transition-all ${
                     active
-                      ? "bg-primary/10 text-primary"
-                      : "text-foreground/50 hover:text-foreground hover:bg-surface"
+                      ? "border-primary text-white bg-white/3"
+                      : "border-transparent text-white/30 hover:text-white/70"
                   }`}
                 >
                   {link.label}
