@@ -151,4 +151,19 @@ export const seedData: WatchItem[] = [
     addedAt: "2024-09-01T10:00:00Z",
     updatedAt: "2024-09-01T10:00:00Z",
   },
+  {
+    id: "11",
+    title: "Cyberpunk: Edgerunners",
+    mediaType: "tv",
+    genre: ["Action", "Animation", "Sci-Fi"],
+    year: 2022,
+    posterUrl: "https://image.tmdb.org/t/p/w500/lqcDVZ8pyk08AVftMBildDR3QUK.jpg",
+    synopsis:
+      "In a dystopian Night City, a street kid tries to survive by becoming an edgerunner — a mercenary outlaw known as a cyberpunk.",
+    status: "plan_to_watch",
+    rating: null,
+    review: null,
+    addedAt: "2024-09-15T10:00:00Z",
+    updatedAt: "2024-09-15T10:00:00Z",
+  },
 ];
